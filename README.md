@@ -1,2 +1,2 @@
-# InformixOnCloud-
+# InformixOnCloud
 InformixOnCloud 
