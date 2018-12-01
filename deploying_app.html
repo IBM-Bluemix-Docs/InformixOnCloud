@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="dcterms.date" content="2017-11-27">
+<meta name="dcterms.rights" content="© Copyright IBM Corporation 2016, 2017">
+
+
+
+<meta name="geo.country" content="ZZ">
+<script>
+    digitalData = {
+      page: {
+        pageInfo: {
+  language: "en-us",
+
+  version: "v18",
+  ibm: {
+  country: "ZZ",
+  type: "CT701"
+  
+         }
+       }
+     }
+   };
+  </script><!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css">
+<title>Managing your server</title>
+</head>
+<body><main role="main"><div><article class="nested0" role="article" aria-labelledby="d286e6" id="deploying_app"><h1 class="topictitle1" id="d286e6">Managing your <span class="keyword">Informix on
+Cloud</span>
+server</h1>
+<aside role="complementary" aria-labelledby="d286e6"></aside><article class="topic reference nested1" role="article" aria-labelledby="d286e26" lang="en-us" id="logging_in"><h2 class="topictitle2" id="d286e26">Logging in to your <span class="keyword">Informix on
+Cloud</span>
+server</h2>
+<div class="body refbody"><p class="shortdesc">Log in to your Informix on Cloud machine using an SSH client. Details are provided in a
+welcome email after your system is ready. Upon logging in the first time, you are immediately
+required to change your password.</p>
+</div>
+<aside role="complementary" aria-labelledby="d286e26"></aside></article><article class="topic reference nested1" role="article" aria-labelledby="d286e55" lang="en-us" id="admin_server"><h2 class="topictitle2" id="d286e55">Administering your server</h2>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">IBM®
+Informix® on Cloud for IBM Cloud</span> is based on IBM Informix Advanced Enterprise Server Edition.</p>
+<div><p>You administer your <span class="keyword">Informix on
+Cloud</span> Informix Server with the same utilities and tools that you use for your on-premises Informix Servers. See <a href="http://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.welcome.doc/welcome.htm" rel="external" target="_blank" title="(Opens in a new tab or window)">Informix documentation</a> for the latest information about the Informix Server.</p>
+
+<p>For instructions on how to successfully back up your Informix Server, please refer to the IBM Informix <a href="https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.bar.doc/bar.htm" rel="external" target="_blank" title="(Opens in a new tab or window)">Backup and Restore Guide</a>.</p>
+</div></div>
+<aside role="complementary" aria-labelledby="d286e55"></aside></article><article class="topic reference nested1" role="article" aria-labelledby="d286e129" lang="en-us" id="securing_server"><h2 class="topictitle2" id="d286e129">Securing your <span class="keyword">Informix on
+Cloud</span>
+server</h2>
+<div class="body refbody"><p class="shortdesc">The <span class="keyword">IBM
+Informix on Cloud for IBM Cloud</span> server is
+configured by default to allow SSH and SSL-based communication to occur only. Network access to the
+server is secured using the iptables firewall.</p>
+<div><div class="p">Run this command to display the rules and status of the iptable
+firewall:<pre class="codeblock"><code>sudo iptables -L -n</code></pre>
+</div>
+
+<div class="p">If different settings are desired than the defaults, you have complete control to make these
+changes. For example, you can:<ul><li>Allow access to the server from a group of IP addresses only, also called a subnet. A subnet
+restricts access from users who are not part of the subnet. For example, the following rule allows
+incoming ssh connections from the <samp class="ph codeph">192.168.100.X</samp> network
+only:<pre class="codeblock"><code>iptables -A INPUT -i eth0 -p tcp -s 192.168.100.0/24 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</code></pre>
+</li>
+<li>Allow access through a single, approved IP address only. For
+example,<pre class="codeblock"><code>iptables -A INPUT -i eth0 -p tcp -s 192.168.100.11 --dport 22 -m state --state NEW, ESTABLISHED -j ACCEPT</code></pre>
+</li>
+</ul>
+</div>
+</div></div>
+<aside role="complementary" aria-labelledby="d286e129"></aside><article class="topic reference nested2" role="article" aria-labelledby="d286e186" lang="en-us" id="server_instance"><h3 class="topictitle3" id="d286e186">Server instance information</h3>
+<div class="body refbody"><p class="shortdesc">IBM provides you with an initially configured <span class="keyword">IBM
+Informix on Cloud for IBM Cloud</span> server ready to interact with clients
+that use SQLI, DRDA, Mongo, and REST protocols. The initial configuration represents a starting
+point, and can be further customized by you to suit your business needs. You have complete
+flexibility and control to customize Informix, including the operating system, and more.</p>
+<div><div class="p">The <span class="keyword">Informix on
+Cloud</span> server is configured to
+interact with clients using the following protocols on the following ports. The firewall is
+configured to allow traffic through to the SSL ports only.<div class="tablenoborder"><table summary="" id="server_instance__table_xcv_rd1_hx" class="defaultstyle"><caption><span class="tablecap">Table 1. Server Instance Ports</span></caption><thead><tr><th style="width: 33.33333333333333%" id="d286e233" class="thleft">Protocol</th>
+<th style="width: 33.33333333333333%" id="d286e235" class="thleft">Without SSL</th>
+<th style="width: 33.33333333333333%" id="d286e237" class="thleft">With SSL</th>
+</tr>
+</thead>
+<tbody><tr><td style="width: 33.33333333333333%" headers="d286e233 ">SQLI</td>
+<td style="width: 33.33333333333333%" headers="d286e235 ">9088</td>
+<td style="width: 33.33333333333333%" headers="d286e237 ">9089</td>
+</tr>
+<tr><td style="width: 33.33333333333333%" headers="d286e233 ">DRDA</td>
+<td style="width: 33.33333333333333%" headers="d286e235 ">9090</td>
+<td style="width: 33.33333333333333%" headers="d286e237 ">9091</td>
+</tr>
+<tr><td style="width: 33.33333333333333%" headers="d286e233 ">Mongo</td>
+<td style="width: 33.33333333333333%" headers="d286e235 ">27017</td>
+<td style="width: 33.33333333333333%" headers="d286e237 ">27018</td>
+</tr>
+<tr><td style="width: 33.33333333333333%" headers="d286e233 ">REST</td>
+<td style="width: 33.33333333333333%" headers="d286e235 ">80</td>
+<td style="width: 33.33333333333333%" headers="d286e237 ">443</td>
+</tr>
+<tr></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="p">As part of the initial configuration, an <samp class="ph codeph">Informix</samp> operating system user is
+created without a password. To connect to the database, a number of options are available to you as
+a client to choose from:<ul><li>Set the password for the <samp class="ph codeph">Informix</samp> user.</li>
+<li>Create a new operating system user.</li>
+<li>Configure Informix to authenticate through a PAM service.</li>
+<li><a href="http://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.sec.doc/ids_am_037.htm" rel="external" target="_blank" title="(Opens in a new tab or window)">Create a mapped user</a>.</li>
+</ul>
+</div>
+</div></div>
+<aside role="complementary" aria-labelledby="d286e186"></aside></article></article><article class="topic task nested1" role="article" aria-labelledby="d286e291" lang="en-us" id="connect_database"><h2 class="topictitle2" id="d286e291">Connecting to your <span class="keyword">Informix on
+Cloud</span>
+server</h2>
+<div class="body taskbody"><div class="section context"><p>You can use any application that can access the Internet to connect to your <span class="keyword">IBM
+Informix on Cloud for IBM Cloud</span> server. The application can be in your
+data center or be hosted in <span class="keyword">Bluemix®</span>.</p>
+
+<p>The <span class="keyword">Informix on
+Cloud</span> server is configured
+with a self-signed SSL certificate, located on the machine at
+<span class="ph filepath">/home/informix/client_ssl/selfsigned_ssl.cert</span>. By default the <span class="keyword">Informix on
+Cloud</span> server accepts only SSL-enabled
+connections, so you must first configure a client for SSL.</p>
+
+<p>The following steps explain how to configure a SQLI-based IBM Informix client driver for
+establishing SSL connection with the server. All these steps are performed on the machine where the
+client runs.</p>
+</div><ol class="steps"><li class="step stepexpand"><span class="cmd">Ensure that the IBM Informix Client Software Development Kit (CSDK) and GSKit are
+installed.</span></li>
+<li class="step stepexpand"><span class="cmd">Identify a directory to create the client's keystore, for example
+<span class="ph filepath">/opt/ifx/mykeystores</span> directory. Change to that directory.</span></li>
+<li class="step stepexpand"><span class="cmd">Copy the SSL certificate from the <span class="keyword">Informix on
+Cloud</span> server in the
+<span class="ph filepath">/home/informix/client_ssl/selfsigned_ssl.cert</span> path to the local directory. You
+can do this by using the <span class="keyword cmdname">scp</span> command.</span></li>
+<li class="step stepexpand"><span class="cmd">Create a new keystore:</span> <pre class="codeblock"><code>gsk8capicmd_64 -keydb -create -db mydbclient.kdb -pw MyPassword -type cms -stash</code></pre>
+
+<p>The above command creates a key database called <span class="ph filepath">mydbclient.kdb</span> and a stash
+file called <span class="ph filepath">mydbclient.sth</span>.<br>The -stash option creates a stash file
+at the same path as the key database, with a file extension of .sth. At connect time, GSKit uses the
+stash file to obtain the password to the key database.</p>
+</li>
+<li class="step stepexpand"><span class="cmd">Add the certificate to keystore: </span> <pre class="codeblock"><code>gsk8capicmd_64 -cert -add -db mydbclient.kdb -pw MyPassword -label selfsigned_ssl -file selfsigned_ssl.cert -format ascii</code></pre>
+The
+above command imports the certificate from the file <span class="ph filepath">selfsigned_ssl.cert</span> into
+the key database called <span class="ph filepath">mydbclient.kdb</span>. <br>You may also consider
+applying appropriate OS level access restrictions to avoid unauthorized access.</li>
+<li class="step stepexpand"><span class="cmd">Edit a file <span class="ph filepath">$INFORMIXDIR/etc/conssl.cfg</span> to contain the following
+lines:</span> <pre class="codeblock"><code>SSL_KEYSTORE_FILE /opt/ifx/keystores/mydbclient.kdb
+SSL_KEYSTORE_STH /opt/ifx/keystores/mydbclient.sth</code></pre>
+
+<p>If <span class="ph filepath">conssl.cfg</span> does not exist or if any of the above parameters are not
+configured, the client keystore and stash file will default to
+<span class="ph filepath">$INFORMIXDIR/etc/client.kdb</span> and
+<span class="ph filepath">$INFORMIXDIR/etc/client.sth</span>.</p>
+
+<p>The IBM Informix client drivers are now ready to make SQLI connections using SSL.</p>
+</li>
+</ol>
+<div class="section postreq"><div class="p"><ul><li><strong>Client side SSL setup needed for IBM Informix JDBC application:</strong>
+<a href="https://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.jdbc_pg.doc/ids_jdbc_490.htm" rel="external" target="_blank" title="(Opens in a new tab or window)">https://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.jdbc_pg.doc/ids_jdbc_490.htm</a></li>
+<li><strong>Client side SSL setup needed for DRDA based non-Java client, please follow the instructions
+from the following URL:</strong><a href="https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.admin.sec.doc/doc/t0053518.html?view=embed" rel="external" target="_blank" title="(Opens in a new tab or window)">https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.admin.sec.doc/doc/t0053518.html?view=embed</a></li>
+<li><strong>Client side SSL setup needed for DRDA based Java client (IBM JCC), please follow the
+instruction from the following URL:</strong><a href="http://www.ibm.com/support/knowledgecenter/SSSNY3_10.1.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_c0024688.html" rel="external" target="_blank" title="(Opens in a new tab or window)">http://www.ibm.com/support/knowledgecenter/SSSNY3_10.1.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_c0024688.html</a></li>
+<li><strong>Setting up MongoDB remote clients for SSL:</strong><a href="http://www.ibm.com/support/knowledgecenter/SSB23S_1.1.0.13/gtpd5/tmdbssl.html" rel="external" target="_blank" title="(Opens in a new tab or window)">http://www.ibm.com/support/knowledgecenter/SSB23S_1.1.0.13/gtpd5/tmdbssl.html</a></li>
+</ul>
+</div>
+
+<p>For more information about configuring Informix client driver for SSL connection, refer to <a href="http://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.sec.doc/ids_ssl_001.htm" rel="external" target="_blank" title="(Opens in a new tab or window)">Secure sockets layer protocol</a> in IBM Knowledge Center,
+Informix Security Guide.</p>
+</div></div>
+<aside role="complementary" aria-labelledby="d286e291"></aside></article></article></div></main></body></html>

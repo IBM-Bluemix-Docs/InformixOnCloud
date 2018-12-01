@@ -1,2 +1,2 @@
 # InformixOnCloud
-InformixOnCloud 
+Informix service docs
