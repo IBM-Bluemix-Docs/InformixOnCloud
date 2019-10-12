@@ -1,0 +1,14 @@
+<!-- Markdown Navigation -->
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+
+{: .toc subcollection="InformixOnCloud" category="app_services" audience="service" arm="3663099" href="/docs/services/InformixOnCloud/InformixOnCloud.html" path="services/InformixOnCloud"}
+Informix on Cloud
+
+    {: .navgroup id="learn"}
+    InformixOnCloud.md
+    informixoncloud_overview.md
+    deploying_app.md
+    troubleshoot/tr_IOCloud.md
+    {: .navgroup-end}
