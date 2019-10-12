@@ -1,12 +1,14 @@
+<!-- Markdown Navigation -->
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="InformixOnCloud" audience="service" href="/docs/services/InformixOnCloud/InformixOnCloud.html" path="services/InformixOnCloud"}
+
+{: .toc subcollection="InformixOnCloud" category="app_services" audience="service" arm="3663099" href="/docs/services/InformixOnCloud/InformixOnCloud.html" path="services/InformixOnCloud"}
 Informix on Cloud
 
     {: .navgroup id="learn"}
-    [Getting started](services/InformixOnCloud/InformixOnCloud.html)
-    [About](services/InformixOnCloud/informixoncloud_overview.html)
-    [Managing your server](services/InformixOnCloud/deploying_app.html)
-    [FAQ](services/InformixOnCloud/troubleshoot/tr_IOCloud.html)
+    InformixOnCloud.md
+    informixoncloud_overview.md
+    deploying_app.md
+    troubleshoot/tr_IOCloud.md
     {: .navgroup-end}
